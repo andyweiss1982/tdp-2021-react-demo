@@ -4,14 +4,19 @@ import ClickCounter from "./components/ClickCounter";
 import BurgerFlipper from "./components/BurgerFlipper";
 
 import { people } from "./data/people";
+import { burgerFlippers } from "./data/burgerFlippers";
 
 const App = () => {
   return (
     <div>
       <h1>Hello TDPs</h1>
-      <hr />
-      <BurgerFlipper />
-      <hr />
+      {burgerFlippers.map((flipper, index) => (
+        <BurgerFlipper
+          key={index}
+          magicAngle={flipper.magicAngle}
+          prize={flipper.prize}
+        />
+      ))}
       <ClickCounter />
       <hr />
       <Today day="Tuesday" temp={32} />

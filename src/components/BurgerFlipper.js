@@ -1,17 +1,18 @@
 import { useState } from "react";
 
-const BurgerFlipper = () => {
+const BurgerFlipper = ({ magicAngle, prize }) => {
   const [angleOfRotation, setAngleOfRotation] = useState(0);
 
   return (
     <div>
+      <h3>Flip the burger {magicAngle} degrees and win a prize</h3>
       <h1
         style={{
           transform: `rotate(${angleOfRotation}deg)`,
           display: "inline-block",
         }}
       >
-        🍔
+        {angleOfRotation === magicAngle ? prize : "🍔"}
       </h1>
       <input
         type="range"
