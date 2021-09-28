@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const loadClickCountFromLocalStorage = () =>
+  Number(localStorage.getItem("clickCount") || 0);
 
 const ClickCounter = () => {
-  const [clickCount, setClickCount] = useState(0);
+  const [clickCount, setClickCount] = useState(loadClickCountFromLocalStorage);
+
+  useEffect(() => {
+    localStorage.setItem("clickCount", clickCount);
+  }, [clickCount]);
 
   const handleClick = () => setClickCount(clickCount + 1);
 
