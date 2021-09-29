@@ -1,11 +1,14 @@
+import HeadingTwo from "../styled/heading-two";
+
 const Today = ({ day, temp }) => {
- return(
-  <>
-    <h2>Today is {day}</h2> 
-    <h3>it is expected to be {temp} degrees</h3>
-  </>
- )
-}
+  return (
+    <>
+      <HeadingTwo color="primary">Today is {day}</HeadingTwo>
+      <HeadingTwo color="secondary">
+        it is expected to be {temp} degrees
+      </HeadingTwo>
+    </>
+  );
+};
 
-export default Today
-
+export default Today;
