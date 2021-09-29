@@ -6,7 +6,17 @@ import BurgerFlipper from "./components/BurgerFlipper";
 import RandomJoke from "./components/RandomJoke";
 import allPersonQuery from "./queries/allPerson";
 
+import { ThemeProvider } from 'styled-components';
+
+import { themePlk, designTokensPlk } from '@rbilabs/components-library';
 import { burgerFlippers } from "./data/burgerFlippers";
+
+const theme = {
+  ...themePlk,
+  token(tokenName) {
+    return designTokensPlk[tokenName];
+  },
+};
 
 const App = () => {
   const [people, setPeople] = useState([]);
@@ -28,34 +38,36 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Hello TDPs</h1>
-      <RandomJoke />
-      <hr />
-      {burgerFlippers.map((flipper, index) => (
-        <BurgerFlipper
-          key={index}
-          magicAngle={flipper.magicAngle}
-          prize={flipper.prize}
-        />
-      ))}
-      <ClickCounter />
-      <hr />
-      <Today day="Tuesday" temp={32} />
-      <Today day="Wednesday" temp={34} />
-      <Today day="Thursday" temp={31} />
-      <hr />
-      {people.map((person) => {
-        return (
-          <Person
-            key={person.name}
-            name={person.name}
-            favoriteProgrammingLanguage={person.favoriteProgrammingLanguage}
-            imageURL={person.image.asset.url}
+    <ThemeProvider theme={theme}>
+      <div>
+        <h1>Hello TDPs</h1>
+        <RandomJoke />
+        <hr />
+        {burgerFlippers.map((flipper, index) => (
+          <BurgerFlipper
+            key={index}
+            magicAngle={flipper.magicAngle}
+            prize={flipper.prize}
           />
-        );
-      })}
-    </div>
+        ))}
+        <ClickCounter />
+        <hr />
+        <Today day="Tuesday" temp={32} />
+        <Today day="Wednesday" temp={34} />
+        <Today day="Thursday" temp={31} />
+        <hr />
+        {people.map((person) => {
+          return (
+            <Person
+              key={person.name}
+              name={person.name}
+              favoriteProgrammingLanguage={person.favoriteProgrammingLanguage}
+              imageURL={person.image.asset.url}
+            />
+          );
+        })}
+      </div>
+    </ThemeProvider>
   );
 };
 

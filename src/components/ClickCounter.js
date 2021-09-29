@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { Button } from "@rbilabs/components-library"
+
 const loadClickCountFromLocalStorage = () =>
   Number(localStorage.getItem("clickCount") || 0);
 
@@ -14,7 +16,7 @@ const ClickCounter = () => {
 
   return (
     <div>
-      <button onClick={handleClick}>Click Me</button>
+      <Button onClick={handleClick}>Click Me</Button>
       <h6>You clicked the button {clickCount} times</h6>
       <h6>You clicked the button {clickCount} times</h6>
       <h6>You clicked the button {clickCount} times</h6>
