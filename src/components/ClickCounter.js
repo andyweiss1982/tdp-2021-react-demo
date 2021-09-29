@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { Button } from "@rbilabs/components-library"
+import { Button } from "@rbilabs/components-library";
 
 const loadClickCountFromLocalStorage = () =>
   Number(localStorage.getItem("clickCount") || 0);
