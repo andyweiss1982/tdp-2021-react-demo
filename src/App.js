@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from "styled-components";
 
-import { themePlk, designTokensPlk } from '@rbilabs/components-library';
+import { themePlk, designTokensPlk } from "@rbilabs/components-library";
 import Home from "./pages/Home";
 import About from "./pages/About";
 
